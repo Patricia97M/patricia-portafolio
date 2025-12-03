@@ -22,7 +22,7 @@ body {
   line-height: 1.6;
 }
 
-a:not(.btn) {
+a {
   color: #2563eb;
   text-decoration: none;
   transition: color 0.2s;
@@ -82,6 +82,7 @@ button,
   color: #fff;
   &:hover {
     background: #193cb8;
+    color: #fff !important;
   }
 }
 .btn-secondary {
