@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Sobre mí — Patricia Monares">
+  <Header slot="header" />
+  <section class="max-w-2xl mx-auto py-10">
+    <h1 class="text-3xl font-bold mb-4">Sobre mí</h1>
+    <p class="mb-4">
+      Soy desarrolladora Full Stack con más de 4 años de experiencia en empresas
+      y proyectos freelance. Me especializo en el desarrollo de aplicaciones web
+      modernas, diseño de sistemas de componentes y soluciones escalables tanto
+      en frontend como backend.
+    </p>
+    <h2 class="text-xl font-semibold mt-6 mb-2">Filosofía de desarrollo</h2>
+    <p class="mb-4">
+      Creo en la importancia de la calidad, la colaboración y el aprendizaje
+      continuo. Me motiva crear productos que aporten valor real y mejoren la
+      experiencia de las personas.
+    </p>
+    <h2 class="text-xl font-semibold mt-6 mb-2">Habilidades técnicas</h2>
+    <ul class="list-disc list-inside mb-4">
+      <li>React, TypeScript, Node.js</li>
+      <li>Design Systems y UI/UX</li>
+      <li>Arquitectura de componentes (Mitosis)</li>
+      <li>Cloud: AWS, GCP básico</li>
+      <li>WordPress + E-commerce</li>
+      <li>Storybook, Tailwind CSS</li>
+    </ul>
+    <h2 class="text-xl font-semibold mt-6 mb-2">Trayectoria</h2>
+    <ul class="list-disc list-inside">
+      <li>Openagents — Full Stack + Mitosis</li>
+      <li>Floidamia — E-commerce WordPress</li>
+      <li>Freelance — Sitios WP y academias</li>
+    </ul>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>

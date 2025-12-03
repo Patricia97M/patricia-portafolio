@@ -1,0 +1,7 @@
+# Netlify redirects y configuración de formularios
+
+/contact /contact 200
+
+# Redireccionar después del envío del formulario
+
+/contact?success=true /gracias 301

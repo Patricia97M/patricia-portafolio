@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import "tailwindcss";
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a:not(.btn) {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover:not(.btn) {
+  color: #1d4ed8;
+}
+
+nav,
+header,
+footer {
+  background: #fff;
+  box-shadow: 0 2px 8px 0 rgba(30, 41, 59, 0.04);
+}
+
+main {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(30, 41, 59, 0.06);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+button,
+.btn {
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  padding: 4px 12px;
+}
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  &:hover {
+    background: #193cb8;
+  }
+}
+.btn-secondary {
+  background: #fff;
+  color: #1447e6;
+  border-color: #1447e6;
+  &:hover {
+    background: #eff6ff;
+  }
+}
+
+.shadow {
+  box-shadow: 0 2px 8px 0 rgba(30, 41, 59, 0.08);
+}
+
+img {
+  object-fit: contain;
+}
+input,
+textarea {
+  outline-color: #193cb8;
+}

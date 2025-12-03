@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<BaseLayout title="Proyectos — Patricia Monares">
+  <Header slot="header" />
+  <h2 class="h-[calc(100vh-260px)] text-center text-3xl font-bold">
+    Proyectos proximamente...
+  </h2>
+  <!-- <section class="max-w-3xl mx-auto py-10">
+    <h1 class="text-3xl font-bold mb-6">Proyectos Destacados</h1>
+    <div class="grid gap-8 md:grid-cols-2">
+      <!-- Copilot: genera una tarjeta de proyecto con imagen, título, descripción, stack, demo y repo -->
+  <!--  <ProjectCard
+    image="/images/raiz-lite.png"
+    title="Mini Design System — Raíz Lite"
+    description="Sistema de componentes UI minimalista y reutilizable para proyectos web."
+    stack="React, TypeScript, Storybook, Tailwind"
+    demo="https://raiz-lite-demo.vercel.app"
+    repo="https://github.com/Patricia97M/raiz-lite"
+  />
+  <ProjectCard
+    image="/images/ecommerce.png"
+    title="E-commerce Full Stack"
+    description="Tienda online con panel de administración, pagos y catálogo dinámico."
+    stack="Node.js, React, MySQL, AWS"
+    demo="https://ecommerce-demo.vercel.app"
+    repo="https://github.com/Patricia97M/ecommerce-fullstack"
+  />
+  <ProjectCard
+    image="/images/nodered-mysql.png"
+    title="Node-RED MySQL Nodes"
+    description="Nodos personalizados para integración de bases de datos MySQL en Node-RED."
+    stack="Node-RED, Node.js, MySQL"
+    demo="https://flows.nodered.org/node/node-red-contrib-mysql"
+    repo="https://github.com/Patricia97M/node-red-mysql-nodes"
+  />
+  <ProjectCard
+    image="/images/chat-socketio.png"
+    title="Chat en Tiempo Real (Socket.IO)"
+    description="Aplicación de chat multiusuario con comunicación instantánea."
+    stack="React, Node.js, Socket.IO"
+    demo="https://chat-socketio-demo.vercel.app"
+    repo="https://github.com/Patricia97M/chat-socketio"
+  />-->
+</BaseLayout>
+
+<Footer slot="footer" />

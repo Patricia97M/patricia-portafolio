@@ -1,0 +1,357 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Contacto — Patricia Monares">
+  <Header slot="header" />
+  <section class="max-w-2xl mx-auto py-10">
+    <h1 class="text-3xl font-bold mb-6">Contacto</h1>
+    <div class="mb-8 space-y-2">
+      <div class="flex items-center gap-2">
+        <span class="font-semibold">Email:</span>
+        <a
+          href="mailto:patriciamonares97@gmail.com"
+          class="text-blue-700 hover:underline">patriciamonares97@gmail.com</a
+        >
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="font-semibold">LinkedIn:</span>
+        <a
+          href="https://www.linkedin.com/in/patricia-monares-montoya/"
+          target="_blank"
+          rel="noopener"
+          class="text-blue-700 hover:underline">patricia-monares-montoya</a
+        >
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="font-semibold">GitHub:</span>
+        <a
+          href="https://github.com/Patricia97M"
+          target="_blank"
+          rel="noopener"
+          class="text-blue-700 hover:underline">Patricia97M</a
+        >
+      </div>
+    </div>
+    <!-- Mensaje de éxito -->
+    <div
+      id="success-message"
+      class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4"
+    >
+      <strong>¡Mensaje enviado exitosamente!</strong> Te contactaré pronto.
+    </div>
+
+    <!-- Mensaje de error -->
+    <div
+      id="error-message"
+      class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4"
+    >
+      <strong>Error al enviar el mensaje.</strong> Por favor intenta nuevamente.
+    </div>
+
+    <form
+      id="contact-form"
+      class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 border border-gray-100 dark:border-gray-700 flex flex-col gap-4"
+      action="https://formspree.io/f/mqarbwro"
+      method="POST"
+    >
+      <!-- Campo oculto para Formspree -->
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nuevo mensaje desde tu portafolio"
+      />
+      <input type="hidden" name="_next" value="https://tudominio.com/gracias" />
+      <input type="hidden" name="_captcha" value="false" />
+
+      <label class="block">
+        <span class="font-semibold text-gray-700 dark:text-gray-300"
+          >Nombre *</span
+        >
+        <input
+          type="text"
+          name="name"
+          required
+          minlength="2"
+          maxlength="50"
+          class="mt-1 w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+          placeholder="Tu nombre completo"
+        />
+        <span class="text-red-500 text-sm hidden" data-error="name"
+          >El nombre debe tener entre 2 y 50 caracteres</span
+        >
+      </label>
+
+      <label class="block">
+        <span class="font-semibold text-gray-700 dark:text-gray-300"
+          >Email *</span
+        >
+        <input
+          type="email"
+          name="email"
+          required
+          class="mt-1 w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+          placeholder="tu@email.com"
+        />
+        <span class="text-red-500 text-sm hidden" data-error="email"
+          >Por favor ingresa un email válido</span
+        >
+      </label>
+
+      <label class="block">
+        <span class="font-semibold text-gray-700 dark:text-gray-300"
+          >Asunto</span
+        >
+        <input
+          type="text"
+          name="subject"
+          maxlength="100"
+          class="mt-1 w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+          placeholder="Asunto del mensaje"
+        />
+      </label>
+
+      <label class="block">
+        <span class="font-semibold text-gray-700 dark:text-gray-300"
+          >Mensaje *</span
+        >
+        <textarea
+          name="message"
+          rows="5"
+          required
+          minlength="10"
+          maxlength="1000"
+          class="mt-1 w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white resize-none"
+          placeholder="Escribe tu mensaje aquí..."></textarea>
+        <span class="text-red-500 text-sm hidden" data-error="message"
+          >El mensaje debe tener entre 10 y 1000 caracteres</span
+        >
+        <div class="text-sm text-gray-500 mt-1">
+          <span id="char-count">0</span>/1000 caracteres
+        </div>
+      </label>
+
+      <button
+        type="submit"
+        id="submit-btn"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <span class="btn-text">Enviar mensaje</span>
+        <span class="btn-loading hidden">
+          <svg
+            class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          Enviando...
+        </span>
+      </button>
+    </form>
+
+    <!-- Método alternativo de contacto -->
+    <div class="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-center">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+        ¿Problemas con el formulario?
+      </p>
+      <a
+        href="mailto:patriciamonares97@gmail.com?subject=Contacto desde portafolio"
+        class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm"
+      >
+        <svg
+          class="w-4 h-4 mr-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          ></path>
+        </svg>
+        Envíame un email directo
+      </a>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>
+
+<script>
+  // Elementos del DOM
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const btnText = submitBtn.querySelector(".btn-text") as HTMLElement;
+  const btnLoading = submitBtn.querySelector(".btn-loading") as HTMLElement;
+  const successMessage = document.getElementById(
+    "success-message"
+  ) as HTMLElement;
+  const errorMessage = document.getElementById("error-message") as HTMLElement;
+  const messageTextarea = document.querySelector(
+    'textarea[name="message"]'
+  ) as HTMLTextAreaElement;
+  const charCount = document.getElementById("char-count") as HTMLElement;
+
+  // Contador de caracteres
+  messageTextarea.addEventListener("input", () => {
+    const count = messageTextarea.value.length;
+    charCount.textContent = count.toString();
+
+    if (count > 1000) {
+      charCount.style.color = "#ef4444";
+    } else if (count > 800) {
+      charCount.style.color = "#f59e0b";
+    } else {
+      charCount.style.color = "#6b7280";
+    }
+  });
+
+  // Validación de campos
+  function validateField(
+    field: HTMLInputElement | HTMLTextAreaElement
+  ): boolean {
+    const name = field.name;
+    const value = field.value.trim();
+    const errorElement = document.querySelector(
+      `[data-error="${name}"]`
+    ) as HTMLElement;
+
+    // Limpiar errores previos
+    field.classList.remove("border-red-500");
+    if (errorElement) {
+      errorElement.classList.add("hidden");
+    }
+
+    let isValid = true;
+
+    switch (name) {
+      case "name":
+        if (value.length < 2 || value.length > 50) {
+          isValid = false;
+        }
+        break;
+      case "email":
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          isValid = false;
+        }
+        break;
+      case "message":
+        if (value.length < 10 || value.length > 1000) {
+          isValid = false;
+        }
+        break;
+    }
+
+    if (!isValid) {
+      field.classList.add("border-red-500");
+      if (errorElement) {
+        errorElement.classList.remove("hidden");
+      }
+    }
+
+    return isValid;
+  }
+
+  // Validar formulario completo
+  function validateForm(): boolean {
+    const nameField = form.querySelector(
+      'input[name="name"]'
+    ) as HTMLInputElement;
+    const emailField = form.querySelector(
+      'input[name="email"]'
+    ) as HTMLInputElement;
+    const messageField = form.querySelector(
+      'textarea[name="message"]'
+    ) as HTMLTextAreaElement;
+
+    const nameValid = validateField(nameField);
+    const emailValid = validateField(emailField);
+    const messageValid = validateField(messageField);
+
+    return nameValid && emailValid && messageValid;
+  }
+
+  // Agregar validación en tiempo real
+  form.querySelectorAll("input, textarea").forEach((field) => {
+    if (
+      field.getAttribute("name") !== "bot-field" &&
+      field.getAttribute("name") !== "form-name"
+    ) {
+      field.addEventListener("blur", () =>
+        validateField(field as HTMLInputElement | HTMLTextAreaElement)
+      );
+      field.addEventListener("input", () => {
+        if (field.classList.contains("border-red-500")) {
+          validateField(field as HTMLInputElement | HTMLTextAreaElement);
+        }
+      });
+    }
+  });
+
+  // Manejar envío del formulario con Formspree
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Ocultar mensajes previos
+    successMessage.classList.add("hidden");
+    errorMessage.classList.add("hidden");
+
+    // Validar formulario
+    if (!validateForm()) {
+      return;
+    }
+
+    // Mostrar estado de carga
+    submitBtn.disabled = true;
+    btnText.classList.add("hidden");
+    btnLoading.classList.remove("hidden");
+
+    try {
+      // Enviar con Formspree
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        // Mostrar mensaje de éxito
+        successMessage.classList.remove("hidden");
+        form.reset();
+        charCount.textContent = "0";
+        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        throw new Error("Error en el envío");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      errorMessage.classList.remove("hidden");
+      errorMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+    } finally {
+      // Restaurar botón
+      submitBtn.disabled = false;
+      btnText.classList.remove("hidden");
+      btnLoading.classList.add("hidden");
+    }
+  });
+</script>

@@ -1,16 +1,165 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SkillIcon from "../components/SkillIcon.astro";
 
+// Importar imágenes de assets (solo PNG por compatibilidad)
+import reactImg from "../assets/react.png";
+import typescriptImg from "../assets/typescript.png";
+import nodejsImg from "../assets/nodejs.png";
+import tailwindImg from "../assets/tailwind.png";
+import storybookImg from "../assets/storybook.png";
+import awsImg from "../assets/AWS.png";
+import gcpImg from "../assets/gcp.png";
+import wordpressImg from "../assets/wordpress.png";
+// Para los SVGs problemáticos, usaremos componentes inline
+import mongodbImg from "../assets/mongodb.png";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Inicio — Patricia Monares">
+  <Header slot="header" />
+
+  <section
+    class="relative flex flex-col items-center justify-center pt-16 px-4 bg-gradient-to-b from-blue-50/60 via-white/80 to-transparent dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 transition-colors"
+  >
+    <div
+      class="absolute inset-0 pointer-events-none select-none opacity-10 dark:opacity-20"
+      aria-hidden="true"
+    >
+    </div>
+    <h1
+      class="text-5xl sm:text-6xl font-extrabold mb-4 tracking-tight text-gray-900 dark:text-white drop-shadow-lg"
+    >
+      Hola, soy <span class="text-blue-700 dark:text-blue-400"
+        >Patricia Monares</span
+      >
+    </h1>
+    <h2
+      class="text-xl sm:text-2xl font-semibold mb-4 text-blue-700 dark:text-blue-400"
+    >
+      Full Stack Developer & UI/UX Enthusiast
+    </h2>
+    <p
+      class="text-lg sm:text-xl max-w-2xl mx-auto mb-8 text-gray-700 dark:text-gray-200"
+    >
+      Especializada en React, Node.js, TypeScript y sistemas de diseño.
+      Apasionada por crear experiencias digitales robustas, escalables y con
+      foco en UI/UX. Experiencia en arquitectura de componentes, cloud y
+      e-commerce.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+      <a
+        href="/projects"
+        class="btn-primary px-7 py-3 dark:bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-800 dark:hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-all duration-200"
+      >
+        Ver proyectos
+      </a>
+      <a
+        href="/contact"
+        class="px-7 py-3 border-2 dark:border-blue-400 dark:text-blue-400 font-semibold rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-all duration-200"
+      >
+        Contáctame
+      </a>
+    </div>
+
+    <!-- Skills visuales -->
+    <div class="mt-10 flex flex-col items-center">
+      <h3
+        class="text-lg font-semibold mb-4 text-gray-700 dark:text-gray-200 tracking-wide"
+      >
+        Skills principales
+      </h3>
+      <div class="flex flex-wrap justify-center gap-6">
+        <div class="group flex flex-col items-center" title="React">
+          <img
+            src={reactImg.src}
+            alt="React"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300"
+            >React</span
+          >
+        </div>
+        <div class="group flex flex-col items-center" title="TypeScript">
+          <img
+            src={typescriptImg.src}
+            alt="TypeScript"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300"
+            >TypeScript</span
+          >
+        </div>
+        <div class="group flex flex-col items-center" title="Node.js">
+          <img
+            src={nodejsImg.src}
+            alt="Node.js"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300"
+            >Node.js</span
+          >
+        </div>
+        <div class="group flex flex-col items-center" title="Tailwind CSS">
+          <img
+            src={tailwindImg.src}
+            alt="Tailwind CSS"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300"
+            >Tailwind</span
+          >
+        </div>
+        <div class="group flex flex-col items-center" title="Storybook">
+          <img
+            src={storybookImg.src}
+            alt="Storybook"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300"
+            >Storybook</span
+          >
+        </div>
+        <div class="group flex flex-col items-center" title="AWS">
+          <img
+            src={awsImg.src}
+            alt="AWS"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300">AWS</span>
+        </div>
+        <div class="group flex flex-col items-center" title="GCP">
+          <img
+            src={gcpImg.src}
+            alt="GCP"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300">GCP</span>
+        </div>
+        <div class="group flex flex-col items-center" title="MongoDB">
+          <img
+            src={mongodbImg.src}
+            alt="MongoDB"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300"
+            >MongoDB</span
+          >
+        </div>
+        <div class="group flex flex-col items-center" title="WordPress">
+          <img
+            src={wordpressImg.src}
+            alt="WordPress"
+            class="w-auto h-10 group-hover:scale-110 transition-transform duration-200"
+          />
+          <span class="text-xs mt-2 text-gray-600 dark:text-gray-300"
+            >WordPress</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

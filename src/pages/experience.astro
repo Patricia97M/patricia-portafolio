@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Experiencia — Patricia Monares">
+  <Header slot="header" />
+  <section class="max-w-3xl mx-auto py-10">
+    <h1 class="text-3xl font-bold mb-6">Experiencia Profesional</h1>
+    <div class="space-y-8">
+      <div class="bg-white rounded-xl shadow p-5 border border-gray-100">
+        <h2 class="text-xl font-semibold text-blue-700 mb-1">Openagents</h2>
+        <div class="text-sm text-gray-500 mb-2">
+          Full Stack Developer & Consultora de Design System | 01/2023 –
+          Actualmente
+        </div>
+        <ul class="list-disc list-inside text-gray-700 mb-2">
+          <li>
+            Desarrollo de aplicaciones full stack con React, TypeScript y
+            Node.js.
+          </li>
+          <li>Creación y optimización de APIs escalables y seguras.</li>
+          <li>
+            Implementación de buenas prácticas en arquitectura, testing y CI/CD.
+          </li>
+          <li>
+            Diseño e implementación de Design System corporativo con componentes
+            UI reutilizables.
+          </li>
+          <li>
+            Colaboración con diseñadoras para implementar interfaces desde
+            Figma.
+          </li>
+          <li>
+            Documentación y capacitación de equipos para adopción del sistema.
+          </li>
+        </ul>
+        <div class="text-xs text-gray-600 italic">
+          Logro: Arquitectura multiplataforma con Mitosis, reduciendo un 40% el
+          esfuerzo de desarrollo.
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow p-5 border border-gray-100">
+        <h2 class="text-xl font-semibold text-blue-700 mb-1">
+          Comercial Floidamia Cardenas E.I.R.L
+        </h2>
+        <div class="text-sm text-gray-500 mb-2">
+          Desarrolladora Web | 01/2021 – 12/2022
+        </div>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>
+            Desarrollo y mantención de e-commerce en WordPress con Woocommerce.
+          </li>
+          <li>Gestión de marketing digital en redes sociales.</li>
+          <li>Producción de contenido gráfico con Canva y GIMP.</li>
+          <li>Gestión de compras, inventario y atención al cliente.</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-xl shadow p-5 border border-gray-100">
+        <h2 class="text-xl font-semibold text-blue-700 mb-1">Freelance</h2>
+        <div class="text-sm text-gray-500 mb-2">
+          Desarrolladora Web | 2020 – 2022
+        </div>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Desarrollo y mantenimiento de sitios web en WordPress.</li>
+          <li>
+            Implementación de academias online con LearnPress y Elementor.
+          </li>
+          <li>Soporte y mejoras de usabilidad para clientes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>

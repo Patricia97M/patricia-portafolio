@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Mensaje Enviado — Patricia Monares">
+  <Header slot="header" />
+  <section class="max-w-2xl mx-auto py-16 text-center">
+    <div class="bg-green-50 border border-green-200 rounded-xl p-8 mb-8">
+      <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h1 class="text-3xl font-bold text-green-800 mb-4">¡Mensaje Enviado!</h1>
+      <p class="text-green-700 text-lg mb-6">
+        Gracias por contactarme. He recibido tu mensaje y te responderé lo antes posible.
+      </p>
+      <p class="text-green-600">
+        Tiempo estimado de respuesta: 24-48 horas
+      </p>
+    </div>
+    
+    <div class="space-y-4">
+      <a 
+        href="/" 
+        class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+      >
+        Volver al inicio
+      </a>
+      
+      <div class="text-gray-600">
+        <p>O puedes contactarme directamente:</p>
+        <a 
+          href="mailto:patriciamonares97@gmail.com" 
+          class="text-blue-600 hover:underline font-medium"
+        >
+          patriciamonares97@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>
